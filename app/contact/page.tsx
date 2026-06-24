@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import CtaSection from "@/components/CtaSection";
 import AnimateOnScroll from "@/components/AnimateOnScroll";
+import ContactForm from "@/components/ContactForm";
 
 const pageVariants = {
   hidden: { opacity: 0 },
@@ -115,62 +116,7 @@ export default function ContactPage() {
             </div>
 
             <AnimateOnScroll variant="scaleIn">
-              <div className="bg-background rounded-2xl p-8 border border-gray-100">
-                <h2 className="text-2xl font-bold text-dark mb-6">Send a Message</h2>
-                <form
-                  action="https://forms.gle/Xb9czAvvSkdRkN8V7"
-                  method="GET"
-                  target="_blank"
-                  className="space-y-5"
-                >
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-dark mb-1.5">
-                      YOUR NAME *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-dark mb-1.5">
-                      YOUR NUMBER *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
-                      placeholder="Your phone number"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-dark mb-1.5">
-                      MESSAGE
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
-                      placeholder="Your message"
-                    />
-                  </div>
-                  <motion.button
-                    type="submit"
-                    className="w-full bg-primary text-white py-3.5 rounded-full text-lg font-semibold"
-                    whileHover={{ scale: 1.02, boxShadow: "0 12px 24px -8px rgba(2, 158, 227, 0.3)" }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    BOOK AN APPOINTMENT
-                  </motion.button>
-                </form>
-              </div>
+              <ContactForm />
             </AnimateOnScroll>
           </div>
         </div>

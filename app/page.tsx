@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
 import FeelingThinkingSection from "@/components/FeelingThinkingSection";
 import CtaSection from "@/components/CtaSection";
@@ -21,9 +24,14 @@ const homeThoughts = [
   "\"Should I even stay in this?\"",
 ];
 
+const pageVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
+};
+
 export default function HomePage() {
   return (
-    <>
+    <motion.div variants={pageVariants} initial="hidden" animate="visible">
       <HeroSection />
 
       <section className="py-16 sm:py-20 bg-white">
@@ -33,7 +41,7 @@ export default function HomePage() {
               ONE-SIDED EFFORTS
             </h2>
           </AnimateOnScroll>
-          <AnimateOnScroll>
+          <AnimateOnScroll delay={0.1}>
             <p className="text-lg text-gray-warm leading-relaxed max-w-3xl mx-auto">
               Do you feel like you&rsquo;re the only one putting effort into the
               relationship?
@@ -42,7 +50,7 @@ export default function HomePage() {
               same energy isn&rsquo;t coming back?
             </p>
           </AnimateOnScroll>
-          <AnimateOnScroll>
+          <AnimateOnScroll delay={0.2}>
             <p className="text-lg text-gray-warm leading-relaxed max-w-3xl mx-auto mt-4">
               Slowly, this can turn into hurt, frustration, and emotional
               exhaustion.
@@ -53,7 +61,7 @@ export default function HomePage() {
               </em>
             </p>
           </AnimateOnScroll>
-          <AnimateOnScroll>
+          <AnimateOnScroll delay={0.3}>
             <p className="text-lg text-gray-warm leading-relaxed max-w-3xl mx-auto mt-4 font-medium">
               You are not alone. With the right understanding, you can recognize
               your worth and set healthy boundaries.
@@ -70,6 +78,6 @@ export default function HomePage() {
       />
 
       <CtaSection subtitle="Take the first step toward emotional well-being. Book your session today." />
-    </>
+    </motion.div>
   );
 }

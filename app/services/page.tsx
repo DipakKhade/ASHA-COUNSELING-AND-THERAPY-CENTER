@@ -1,12 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import FeelingThinkingSection from "@/components/FeelingThinkingSection";
 import CtaSection from "@/components/CtaSection";
-import type { Metadata } from "next";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
-export const metadata: Metadata = {
-  title: "Services - Asha Counseling And Therapy Center",
-  description:
-    "Professional counseling services including hypnotherapy, mental health counseling, and marriage counselling.",
+const pageVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 const services = [
@@ -120,22 +122,24 @@ const serviceImages: Record<string, string> = {
 
 export default function ServicesPage() {
   return (
-    <>
+    <motion.div variants={pageVariants} initial="hidden" animate="visible">
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-4">
-              Services
-            </h1>
-            <p className="text-xl text-gray-warm max-w-3xl mx-auto">
-              Professional counseling services tailored to your unique needs.
-            </p>
-          </div>
+          <AnimateOnScroll>
+            <div className="text-center mb-16">
+              <h1 className="text-4xl sm:text-5xl font-bold text-dark mb-4">
+                Services
+              </h1>
+              <p className="text-xl text-gray-warm max-w-3xl mx-auto">
+                Professional counseling services tailored to your unique needs.
+              </p>
+            </div>
+          </AnimateOnScroll>
 
           {services.map((service, index) => (
             <div key={service.id} id={service.id}>
               <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                <AnimateOnScroll className={index % 2 === 1 ? "lg:order-2" : ""}>
                   <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-4">
                     {service.title}
                   </h2>
@@ -145,28 +149,31 @@ export default function ServicesPage() {
                   <p className="text-lg text-gray-warm leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <a
+                  <motion.a
                     href="https://api.whatsapp.com/send/?phone=917888000986&text=Hii&type=phone_number&app_absent=0"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary-dark transition-all"
+                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold"
+                    whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(2, 158, 227, 0.3)" }}
+                    whileTap={{ scale: 0.96 }}
                   >
                     Book An Appointment
-                  </a>
-                </div>
-                <div
-                  className={`relative rounded-2xl overflow-hidden shadow-xl ${
-                    index % 2 === 1 ? "lg:order-1" : ""
-                  }`}
+                  </motion.a>
+                </AnimateOnScroll>
+                <AnimateOnScroll
+                  variant="scaleIn"
+                  className={index % 2 === 1 ? "lg:order-1" : ""}
                 >
-                  <Image
-                    src={serviceImages[service.id]}
-                    alt={service.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                    <Image
+                      src={serviceImages[service.id]}
+                      alt={service.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </AnimateOnScroll>
               </div>
 
               <FeelingThinkingSection
@@ -185,6 +192,6 @@ export default function ServicesPage() {
       </section>
 
       <CtaSection />
-    </>
+    </motion.div>
   );
 }

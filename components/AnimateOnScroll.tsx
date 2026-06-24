@@ -1,38 +1,65 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+
+const variantConfig = {
+  fadeInUp: {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+  fadeIn: {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+  fadeInDown: {
+    hidden: { opacity: 0, y: -16 },
+    visible: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+  scaleIn: {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1 },
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+  none: {
+    hidden: {},
+    visible: {},
+    transition: {},
+  },
+};
+
+type Variant = keyof typeof variantConfig;
 
 export default function AnimateOnScroll({
   children,
   className = "",
+  variant = "fadeInUp",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
+  variant?: Variant;
+  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const cfg = variantConfig[variant];
+  const transition = delay ? { ...cfg.transition, delay } : cfg.transition;
 
   return (
-    <div ref={ref} className={`animate-on-scroll ${visible ? "visible" : ""} ${className}`}>
+    <motion.div
+      ref={ref}
+      className={className}
+      initial={cfg.hidden}
+      animate={inView ? cfg.visible : cfg.hidden}
+      transition={transition}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }

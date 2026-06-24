@@ -1,4 +1,23 @@
+"use client";
+
+import { motion } from "framer-motion";
 import AnimateOnScroll from "./AnimateOnScroll";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -12 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.35, ease: "easeOut" as const },
+  },
+};
 
 interface FeelingThinkingSectionProps {
   title: string;
@@ -27,41 +46,65 @@ export default function FeelingThinkingSection({
 
         <div className="grid md:grid-cols-2 gap-8">
           <AnimateOnScroll>
-            <div className="bg-primary-light/50 rounded-2xl p-8 border border-primary/10 hover:shadow-lg transition-shadow duration-300">
+            <motion.div
+              className="bg-primary-light/50 rounded-2xl p-8 border border-primary/10"
+              whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(2, 158, 227, 0.15)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <h3 className="text-xl font-bold text-dark mb-6 flex items-center gap-2">
                 <span className="text-primary">🔍</span> You may be feeling&hellip;
               </h3>
-              <ul className="space-y-3 animate-stagger">
+              <motion.ul
+                className="space-y-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+              >
                 {feelings.map((item, i) => (
-                  <li
+                  <motion.li
                     key={i}
-                    className="flex items-start gap-3 text-gray-warm transition-all duration-300 hover:translate-x-1"
+                    variants={itemVariants}
+                    className="flex items-start gap-3 text-gray-warm"
+                    whileHover={{ x: 4 }}
                   >
                     <span className="text-primary mt-1.5 flex-shrink-0">◆</span>
                     <span>{item}</span>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
-            </div>
+              </motion.ul>
+            </motion.div>
           </AnimateOnScroll>
 
           <AnimateOnScroll>
-            <div className="bg-accent-light/50 rounded-2xl p-8 border border-accent/10 hover:shadow-lg transition-shadow duration-300">
+            <motion.div
+              className="bg-accent-light/50 rounded-2xl p-8 border border-accent/10"
+              whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(226, 2, 16, 0.15)" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <h3 className="text-xl font-bold text-dark mb-6 flex items-center gap-2">
                 <span className="text-accent">💭</span> You may be thinking&hellip;
               </h3>
-              <ul className="space-y-3 animate-stagger">
+              <motion.ul
+                className="space-y-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+              >
                 {thoughts.map((item, i) => (
-                  <li
+                  <motion.li
                     key={i}
-                    className="flex items-start gap-3 text-gray-warm transition-all duration-300 hover:translate-x-1"
+                    variants={itemVariants}
+                    className="flex items-start gap-3 text-gray-warm"
+                    whileHover={{ x: 4 }}
                   >
                     <span className="text-accent mt-1.5 flex-shrink-0">◆</span>
                     <span>{item}</span>
-                  </li>
+                  </motion.li>
                 ))}
-              </ul>
-            </div>
+              </motion.ul>
+            </motion.div>
           </AnimateOnScroll>
         </div>
       </div>

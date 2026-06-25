@@ -68,8 +68,8 @@ export default function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
                   isActive(link.href)
-                    ? "text-primary"
-                    : "text-dark hover:text-primary"
+                    ? "text-accent"
+                    : "text-dark hover:text-accent"
                 }`}
               >
                 {link.label}
@@ -77,7 +77,7 @@ export default function Header() {
             ))}
             <a
               href="tel:917888000986"
-              className="text-sm font-semibold text-primary hover:text-primary-dark transition-colors"
+              className="text-sm font-semibold text-accent hover:text-accent-dark transition-colors"
             >
               Call: 91-7888000986
             </a>
@@ -86,7 +86,7 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-3">
             <a
               href="tel:917888000986"
-              className="text-xs font-semibold text-primary"
+              className="text-xs font-semibold text-accent"
             >
               Call: 91-7888000986
             </a>
@@ -161,8 +161,8 @@ function MobileMenu({
                   onClick={() => setOpen(false)}
                   className={`block px-4 py-2.5 text-sm transition-colors ${
                     isActive(link.href)
-                      ? "text-primary bg-primary-light"
-                      : "text-dark hover:bg-primary-light hover:text-primary"
+                      ? "text-accent bg-accent-light"
+                      : "text-dark hover:bg-accent-light hover:text-accent"
                   }`}
                 >
                   {link.label}

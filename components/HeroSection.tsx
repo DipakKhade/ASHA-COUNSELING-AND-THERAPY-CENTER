@@ -29,7 +29,7 @@ export default function HeroSection() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-dark leading-tight mb-4">
               Welcome To
               <br />
-              <span className="text-primary">Online Therapy</span>
+              <span className="text-accent">Online Therapy</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-warm max-w-lg mx-auto lg:mx-0 mb-6 leading-relaxed">
               Professional mental health support from the comfort of your home.
@@ -52,7 +52,7 @@ export default function HeroSection() {
               <motion.a
                 href="tel:917888000986"
                 className="inline-flex items-center gap-2 text-dark border-2 border-gray-200 px-6 py-3 rounded-full text-sm sm:text-base font-semibold"
-                whileHover={{ borderColor: "#029ee3", color: "#029ee3", scale: 1.02 }}
+                whileHover={{ borderColor: "#e20210", color: "#e20210", scale: 1.02 }}
                 whileTap={{ scale: 0.96 }}
               >
                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export default function HeroSection() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             >
               <motion.div
-                className="absolute inset-0 bg-primary/10 rounded-full blur-3xl"
+                className="absolute inset-0 bg-accent/10 rounded-full blur-3xl"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />

@@ -153,8 +153,8 @@ export default function ServicesPage() {
                     href="https://api.whatsapp.com/send/?phone=917888000986&text=Hii&type=phone_number&app_absent=0"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold"
-                    whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(2, 158, 227, 0.3)" }}
+                    className={`inline-flex items-center gap-2 text-white px-6 py-3 rounded-full text-sm font-semibold ${index === 1 || index === 3 ? "bg-accent" : "bg-primary"}`}
+                    whileHover={{ scale: 1.04, boxShadow: `0 20px 25px -5px ${index === 1 || index === 3 ? "rgba(226, 2, 16, 0.3)" : "rgba(2, 158, 227, 0.3)"}` }}
                     whileTap={{ scale: 0.96 }}
                   >
                     Book An Appointment

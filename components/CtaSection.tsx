@@ -9,7 +9,7 @@ interface CtaSectionProps {
 
 export default function CtaSection({ subtitle }: CtaSectionProps) {
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-r from-primary to-primary-dark text-white overflow-hidden">
+    <section className="py-16 sm:py-20 bg-gradient-to-r from-primary via-accent to-accent-dark text-white overflow-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
@@ -37,7 +37,7 @@ export default function CtaSection({ subtitle }: CtaSectionProps) {
             href="https://api.whatsapp.com/send/?phone=917888000986&text=Hii&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-primary-dark px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
+            className="inline-flex items-center gap-2 bg-white text-accent-dark px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
             whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.96 }}
           >

@@ -37,11 +37,11 @@ export default function ContactPage() {
               <AnimateOnScroll>
                 <div className="flex items-start gap-4">
                   <motion.div
-                    className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center flex-shrink-0"
-                    whileHover={{ scale: 1.1, backgroundColor: "#029ee3", color: "#fff" }}
+                    className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.1, backgroundColor: "#e20210", color: "#fff" }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                   >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </motion.div>
@@ -102,8 +102,8 @@ export default function ContactPage() {
                     href="https://forms.gle/Xb9czAvvSkdRkN8V7"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
-                    whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(2, 158, 227, 0.3)" }}
+                    className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
+                    whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(226, 2, 16, 0.3)" }}
                     whileTap={{ scale: 0.96 }}
                   >
                     Start Your Healing Journey

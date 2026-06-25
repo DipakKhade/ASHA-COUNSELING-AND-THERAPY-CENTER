@@ -50,7 +50,7 @@ export default function AboutPage() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             <AnimateOnScroll>
-              <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">
+              <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3">
                 Meet Your Therapist
               </p>
               <p className="text-lg text-gray-warm leading-relaxed mb-6">
@@ -108,7 +108,7 @@ export default function AboutPage() {
                   whileHover={{ y: -4, boxShadow: "0 12px 24px -8px rgba(0, 0, 0, 0.1)" }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="text-4xl sm:text-5xl font-bold text-primary mb-3">
+                  <div className={`text-4xl sm:text-5xl font-bold mb-3 ${i === 0 ? "text-accent" : "text-primary"}`}>
                     {stat.value}
                   </div>
                   <h3 className="text-lg font-semibold text-dark mb-3">
@@ -144,8 +144,8 @@ export default function AboutPage() {
                   href="https://api.whatsapp.com/send/?phone=917888000986&text=Hii&type=phone_number&app_absent=0"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
-                  whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(2, 158, 227, 0.3)" }}
+                  className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg"
+                  whileHover={{ scale: 1.04, boxShadow: "0 20px 25px -5px rgba(226, 2, 16, 0.3)" }}
                   whileTap={{ scale: 0.96 }}
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

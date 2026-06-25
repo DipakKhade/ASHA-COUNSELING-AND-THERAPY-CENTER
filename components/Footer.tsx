@@ -78,7 +78,7 @@ export default function Footer() {
               Office No.2, 1st Floor, Shalimar Corner, Above Hotel Leelas, Near Court, Baramati, Pune. 413102
             </p>
             <p className="text-sm text-gray-400 mb-4">
-              <span className="text-white">Call Us:</span> 91-7888000896
+              <span className="text-white">Call Us:</span> 91-7888000986
             </p>
             <div className="flex gap-3">
               <a href="https://www.facebook.com/share/186c12cCTn/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">

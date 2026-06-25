@@ -87,8 +87,8 @@ export default function ContactForm() {
         <motion.button
           type="submit"
           disabled={status === "loading"}
-          className="w-full bg-primary text-white py-3.5 rounded-full text-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
-          whileHover={status === "loading" ? {} : { scale: 1.02, boxShadow: "0 12px 24px -8px rgba(2, 158, 227, 0.3)" }}
+          className="w-full bg-accent text-white py-3.5 rounded-full text-lg font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+          whileHover={status === "loading" ? {} : { scale: 1.02, boxShadow: "0 12px 24px -8px rgba(226, 2, 16, 0.3)" }}
           whileTap={status === "loading" ? {} : { scale: 0.97 }}
         >
           {status === "loading" ? "Sending..." : "BOOK AN APPOINTMENT"}
